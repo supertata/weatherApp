@@ -26,14 +26,18 @@ window.addEventListener('load', ()=> {
        temperatureDegree.textContent = temperature;
        temperatureDescription.textContent = summary;
        locationTimezone.textContent = data.timezone;
+       //FORMULA FOR CELSIUS;
+       let celsius = (temperature - 32) * (5/9);
          //Set Icons
          setIcons(icon, document.querySelector(".icon"));
          //Change temperature to Celsius/Farenheit
          temperatureSection.addEventListener("click", () => {
              if (temperatureSpan.textContent === "F") {
                  temperatureSpan.textContent = "C";
+                 temperatureDegree.textContent = Math.floor(celsius);
              } else {
                  temperatureSpan.textContent = "F";
+                 temperatureDegree.textContent = temperature;
              }
          })
     });
